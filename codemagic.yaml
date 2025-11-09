@@ -6,7 +6,7 @@ workflows:
       node: latest
       xcode: latest
       vars:
-        BUNDLE_ID: "com.dogteal.cinephile"  # <-- update if you want
+        BUNDLE_ID: "com.bryan.cinephile"
     scripts:
       - name: Install Node dependencies
         script: |
@@ -34,3 +34,4 @@ workflows:
             -exportArchive \
             -archivePath $CM_BUILD_DIR/ios_archive.xcarchive \
             -exportPath $CM_BUILD_DIR \
+
