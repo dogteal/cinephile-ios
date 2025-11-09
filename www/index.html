@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
+    <title>Cinephile</title>
+
+    <!-- Basic styling so the splash doesn't look janky -->
+    <style>
+      html, body {
+        padding: 0;
+        margin: 0;
+        background: #000;
+        height: 100%;
+        overflow: hidden;
+      }
+      #app-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: white;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app-loading">Loading Cinephile…</div>
+
+    <script>
+      // ✅ Your live webapp URL
+      const APP_URL =
+        "https://cinephile-imdb-movie-recommender-309517433349.us-west1.run.app";
+
+      // ✅ Redirect the WebView to your live app
+      window.location.href = APP_URL;
+    </script>
+  </body>
+</html>
