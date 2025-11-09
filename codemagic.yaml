@@ -7,6 +7,7 @@ workflows:
       xcode: latest
       vars:
         BUNDLE_ID: "com.bryan.cinephile"
+
     scripts:
       - name: Install Node dependencies
         script: |
@@ -20,21 +21,18 @@ workflows:
       - name: Build iOS archive
         script: |
           cd ios/App
-          xcodebuild 
-            -workspace App.xcworkspace 
-            -scheme App 
-            -configuration Release 
-            -archivePath /ios_archive.xcarchive 
-            archive 
-            DEVELOPMENT_TEAM="" 
+          xcodebuild \
+            -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -archivePath /ios_archive.xcarchive \
+            archive \
             PRODUCT_BUNDLE_IDENTIFIER=""
 
     artifacts:
-      - /*.ipa
-      - /**/*.dSYM
+      - /**/*.ipa
       - /ios_archive.xcarchive
 
     publishing:
       app_store_connect:
         auth: integration
-        submit_testflight: false
