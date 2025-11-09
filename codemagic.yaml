@@ -2,6 +2,10 @@ workflows:
   ios-capacitor:
     name: Build iOS (Capacitor)
     max_build_duration: 60
+
+    integrations:
+      app_store_connect: my-appstore-connection
+
     environment:
       node: latest
       xcode: latest
@@ -25,13 +29,13 @@ workflows:
             -workspace App.xcworkspace \
             -scheme App \
             -configuration Release \
-            -archivePath /ios_archive.xcarchive \
+            -archivePath $CM_BUILD_DIR/ios_archive.xcarchive \
             archive \
-            PRODUCT_BUNDLE_IDENTIFIER=""
+            PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID"
 
     artifacts:
-      - /**/*.ipa
-      - /ios_archive.xcarchive
+      - $CM_BUILD_DIR/**/*.ipa
+      - $CM_BUILD_DIR/ios_archive.xcarchive
 
     publishing:
       app_store_connect:
